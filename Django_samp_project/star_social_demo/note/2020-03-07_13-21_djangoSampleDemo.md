@@ -67,3 +67,4 @@ path('accounts/',include('django.contrib.auth.urls'))
 
 - git rm --cache(git管理下から削除するだけ)
 - git clean -f ~で untracked fileから削除する。
+- git reset HEAD . 間違ってadd してしまった時用
