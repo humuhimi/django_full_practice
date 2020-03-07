@@ -3,5 +3,9 @@
 /accounts/__pycache__/
 /accounts/migrations/__pycache__/
 /star_social_demo/__pycache__/
+/groups/__pycache__/
+/groups/migrations/__pycache__/
+/posts/__pycache__/
+/posts/migrations/__pycache__/
 
 
