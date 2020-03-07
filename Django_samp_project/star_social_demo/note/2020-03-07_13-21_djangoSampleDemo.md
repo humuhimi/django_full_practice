@@ -9,6 +9,8 @@ pip 19.2.3 (python 3.7)
 
 インストールしたパッケージ名とバージョンが表示される。
 
+djangoではdjango-bootstrap4をinstallするように
+
 --- 
 - settings.pyについて
 ```python
@@ -24,6 +26,9 @@ STATICFILES_DIR = [os.path.join(BASE_DIR,'static')]
 ```
 プロジェクトには、特定のアプリケーションに紐付けられていない 静的な assets があることがあります。<br />その場合には、アプリケーション内の static/ ディレクトリの他に、設定ファイルでディレクトリのリスト (STATICFILES_DIRS) を定義して、Django が静的ファイルを検索できるようにすることができます。<br/>
 [詳細](https://docs.djangoproject.com/ja/3.0/howto/static-files/)
+
+LOGIN_REDIRECT_URL = 'test'
+LOGOUT_REDIRECT_URL = 'thanks'
 
 ---
 
@@ -68,3 +73,15 @@ path('accounts/',include('django.contrib.auth.urls'))
 - git rm --cache(git管理下から削除するだけ)
 - git clean -f ~で untracked fileから削除する。
 - git reset HEAD . 間違ってadd してしまった時用
+- git add .(.全部)
+- git add -u (すでにtrackされてるもの)
+
+---
+
+- [role属性について](http://xn--lcki7of.jp/502/)
+
+role 属性 は、要素が示す役割を明確にするための属性です。<br />
+ ... HTML5 以降の HTML は、ある役割を示す要素が多く存在しますが、role 属性はより強く役割を示します。<br />
+
+ ---
+
