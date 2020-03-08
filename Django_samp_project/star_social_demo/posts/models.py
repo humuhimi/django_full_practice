@@ -17,10 +17,10 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     message = models.TextField()
     message_html = models.TextField(editable=False)
-    group = models.ForeignKey(Group,related_name='post',null=True,blank=True,on_delete=models.CASCADE)
+    group = models.ForeignKey(Group,related_name='posts',null=True,blank=True,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.,message
+        return self.message
 
     def save(self,*args,**kwargs):
         self.message_html = misaka.html(self.message)
