@@ -40,3 +40,46 @@ class Group(models.Model):
             # slugに基づきリダイレクト
         return reverse('groups:single', kwargs={'slug': self.slug})
 ```
+---
+- iconについて
+
+```html
+#  Bootstrapでは、初期設定でGlyphiconsというアイコンが用意されている
+<span class="glyphicon glyphicon-アイコン名" aria-hidden="true"></span>
+```
+---
+
+---
+
+- [object_listについて](https://docs.djangoproject.com/en/3.0/ref/class-based-views/generic-display/)
+
+```python
+views.py
+class ArticleListView(ListView):
+
+    model = Article
+    paginate_by = 100  # if pagination is desired
+--
+↓
+urls.py
+
+from django.urls import path
+
+from article.views import ArticleListView
+
+urlpatterns = [
+    path('', ArticleListView.as_view(), name='article-list'),
+]
+--
+↓
+article-list.html
+
+<h1>Articles</h1>
+<ul>
+{% for article in object_list %}
+```
+---
+
+- django-bracesについて
+
+これにより CBVsで便利なmixinを提供する
