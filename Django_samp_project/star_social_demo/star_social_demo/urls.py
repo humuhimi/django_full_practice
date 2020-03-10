@@ -18,6 +18,10 @@ from django.urls import path,include
 from . import views
 from  django.conf import settings
 
+admin.site.site_header="STAR_SOCIAL"
+admin.site.site_title="star social"
+admin.site.index_title="star social demo"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.HomePage.as_view(),name="home"),
