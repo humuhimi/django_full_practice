@@ -12,7 +12,8 @@
               </h2>
             {% endif %}
             <h2>Groups</h2>
-            <p>Wellcome to the groups page!</p>
+            <p>Welcome to the groups page!</p>
+            <p>Select a Group with a shared interest!</p>
         </div>
         {% if user.is_authenticated  %}
           <a href="{% url 'groups:create' %}" class='btn btn-md btn-fill btn-waring'>
@@ -48,9 +49,5 @@
         {% endfor %}
     </div>
 </div>
-    
 {% endblock group_content %}
-<di class=>
-
-</div>
     
