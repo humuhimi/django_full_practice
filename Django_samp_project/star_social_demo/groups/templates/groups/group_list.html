@@ -36,13 +36,13 @@
             </div>
           <div class="row">
               <div class="col-md-4">
-                  <span class="badge">{{ group.members.count }}</span>
+                  <span class="badge badge-pill badge-info">{{ group.member.count }}</span>
                   <!--  1 でない場合に、複数形を返す -->
-                  member {{ group.members.count|pluralize }}
+                  member{{ group.member.count|pluralize }}
               </div>
               <div class="col-md-4">
-                  <span class="badge">{{ group.posts.count }}</span>
-                  member {{ group.posts.count|pluralize }}
+                  <span class="badge badge-pill badge-info">{{ group.posts.count }}</span>
+                  member{{ group.posts.count|pluralize }}
               </div>
           </div>
         </a>
