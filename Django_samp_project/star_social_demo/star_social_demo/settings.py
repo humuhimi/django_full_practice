@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'groups.apps.GroupsConfig',
     'posts.apps.PostsConfig',
     'bootstrap4',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'star_social_demo.urls'
@@ -129,4 +131,6 @@ STATICFILES_DIR = [os.path.join(BASE_DIR,'static')]
 
 LOGIN_REDIRECT_URL = 'test'
 LOGOUT_REDIRECT_URL = 'thanks'
+
+INTERNAL_IPS = ['127.0.0.1']
 
