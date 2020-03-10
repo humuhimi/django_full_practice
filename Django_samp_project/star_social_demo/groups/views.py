@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import (LoginRequiredMixin,PermissionRequiredMixin)
-from django.http import get_object_or_404
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 from django.urls import reverse
 from django.views import generic
 
 from groups.models import Group,GroupMember
+from . import models
 
 # Exception raised when the relational integrity of the database is affected, 
 # e.g. a foreign key check fails, duplicate key, etc.
@@ -50,11 +51,11 @@ class LeaveGroup(LoginRequiredMixin,generic.RedirectView):
     def get(self,request,*args,**kwargs):
 
         try: 
-            membership = model.GroupMember.objects.filter(
+            membership = models.GroupMember.objects.filter(
                 user = self.request.user,
                 group__slug = self.kwargs.get('slug')
             ).get()
-        except models.GroupMember.DoseNotExsist:
+        except models.GroupMember.DoesNotExist:
             messages.warning(self.request,"sorry you aren'/t in this group")
 
         else:

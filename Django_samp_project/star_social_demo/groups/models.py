@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 # Create your models here.
 import misaka
@@ -25,12 +25,11 @@ class Group(models.Model):
 
     def save(self,*args,**kwargs):
         self.slug = slugify(self.name)
-        # misaka is a fast markdown processing library(process description to description_html)
         self.description_html = misaka.html(self.description)
         super().save(*args,**kwargs)
     
     def get_absolute_url(self):
-        return reverse('groups:single', kwargs={'slug': self.slug})
+        return reverse('groups:single', kwargs={'slug':self.slug})
 
 class GroupMember(models.Model):
     group = models.ForeignKey(Group,related_name='memberships',on_delete=models.CASCADE)

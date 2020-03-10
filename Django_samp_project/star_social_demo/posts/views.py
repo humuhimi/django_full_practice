@@ -12,7 +12,10 @@ from . import forms
 
 from django.contrib.auth import get_user_model
 
-from django.contrib.messages import constants as messages
+from django.contrib import messages
+
+# DoesNotExist エラーの代わりにとりあえずこれで通す
+from django.core.exceptions import ObjectDoesNotExist
 
 User = get_user_model()
 
@@ -27,8 +30,8 @@ class UserPosts(generic.ListView):
 
     def get_queryset(self):
         try:
-            self.post_user = User.objects.prefetch_related('posts').get(username_iexact=self.kwargs.get('username'))
-        except User.DoesNoteExist:
+            self.post_user = User.objects.prefetch_related('posts').get(username__iexact=self.kwargs.get('username'))
+        except User.DoesNotExist:
             raise Http404
         else:
             return self.post_user.posts.all()
@@ -47,7 +50,7 @@ class PostDetail(SelectRelatedMixin,generic.DetailView):
         return queryset.filter(user__username__iexact=self.kwargs.get('username'))
 
 class CreatePost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
-    fileds = ('message','group')
+    fields = ('message','group')
     model = models.Post
 
     def form_valid(self,form):
@@ -59,7 +62,7 @@ class CreatePost(LoginRequiredMixin,SelectRelatedMixin,generic.CreateView):
 class DeletePost(LoginRequiredMixin,SelectRelatedMixin,generic.DeleteView):
     model = models.Post
     select_related = ('user','group')
-    sucess_url = reverse_lazy('posts:all')
+    success_url = reverse_lazy('posts:all')
 
 
     def get_queryset(self):

@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.conf import settings
 
 import misaka
@@ -32,4 +32,4 @@ class Post(models.Model):
     
     class Meta:
         ordering = ['-created_at']
-        unique_togeter = ['user','message']
+        unique_together = ['user','message']
