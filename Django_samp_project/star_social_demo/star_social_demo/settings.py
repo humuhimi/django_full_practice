@@ -178,8 +178,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIR = (
     os.path.join(BASE_DIR,'static'),
 )
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-print(STATIC_ROOT)
+
 LOGIN_REDIRECT_URL = 'test'
 LOGOUT_REDIRECT_URL = 'thanks'
 
