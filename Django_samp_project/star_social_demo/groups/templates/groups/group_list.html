@@ -5,13 +5,14 @@
     <div class="col-md-4">
         <div class="content">
             {% if user.is_authenticated %}
-              <h2> Wellcome Back!
+              <h2 class="mb-xl-2"> Wellcome Back! </h2>
+              <h2>
                     <a href="{% url 'posts:for_user' username=user.username %}">
                         @{{ user.username }}
                     </a>
               </h2>
             {% endif %}
-            <h2>Groups</h2>
+            <h2 class="title mb-xl-5">Groups</h2>
             <p>Welcome to the groups page!</p>
             <p>Select a Group with a shared interest!</p>
         </div>
@@ -33,9 +34,9 @@
         <!-- TODO: list-group-itemクラスにカーソルが写った場合に activeする-->
         <!-- document.getElementById("MyElement").className += " MyClass"; -->
         <a class="list-group-item list-group-item-action" href="{% url 'groups:single' slug=group.slug %}">
-            <h3 class="title list-group-item-heading">{{ group.name }}</h3>
+            <h3 class="title list-group-item-heading mb-xl-3"><strong>{{ group.name }}</strong></h3>
             <div class="list-group-item-text container-fluid">
-                {{ group.description_html|safe }}
+                <u>{{ group.description_html|safe }}</u>
             </div>
           <div class="row">
               <div class="col-md-4">

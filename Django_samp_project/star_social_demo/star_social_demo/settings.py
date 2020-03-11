@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import mimetypes
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,6 +26,54 @@ SECRET_KEY = 'p5!c7a9cno@&uij2@elhje#bqg2kwlfvpe5ak6m(@c^_h5=d^z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# 再設定してください
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'filters': {
+#         'require_debug_false': {
+#             '()': 'django.utils.log.RequireDebugFalse',
+#         },
+#         'require_debug_true': {
+#             '()': 'django.utils.log.RequireDebugTrue',
+#         },
+#     },
+#     'formatters': {
+#         'django.server': {
+#             '()': 'django.utils.log.ServerFormatter',
+#             'format': '[%(server_time)s] %(message)s a',
+#         }
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'INFO',
+#             'filters': ['require_debug_true'],
+#             'class': 'logging.StreamHandler',
+#         },
+#         'django.server': {
+#             'level': 'INFO',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'django.server',
+#         },
+#         'mail_admins': {
+#             'level': 'ERROR',
+#             'filters': ['require_debug_false'],
+#             'class': 'django.utils.log.AdminEmailHandler'
+#         }
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console', 'mail_admins'],
+#             'level': 'INFO',
+#         },
+#         'django.server': {
+#             'handlers': ['django.server'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#     }
+# }
 
 ALLOWED_HOSTS = []
 
@@ -126,6 +175,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIR = (
+    os.path.join(BASE_DIR,'static'),
+)
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 print(STATIC_ROOT)
 LOGIN_REDIRECT_URL = 'test'
@@ -133,3 +185,8 @@ LOGOUT_REDIRECT_URL = 'thanks'
 
 INTERNAL_IPS = ['127.0.0.1']
 
+
+# .svg ファイルの認識
+
+# mimetypes.add_type("image/svg+xml", ".svg", True)
+# mimetypes.add_type("image/svg+xml", ".svgz", True)

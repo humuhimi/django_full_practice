@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,31 +26,31 @@
 
 </head>
 <body>
-    <nav class='navbar mynav' role="navigation" id='navbar'>
+    <nav class="navbar navbar-dark bg-dark mb-xl-4" role="navigation" id='navbar'>
         <div class="container">
             <a class='navbar-brand mynav' href="{% url 'home' %}">
-                <img src="{% static 'images/f_f_traffic_46_svg_f_traffic_46_0bg.svg' %}" alt="ロケット">
+                <!-- TODO: 画像をnavbrandに付ける -->
+                <!-- <img src="{% static 'icons8-rocket-100.png' %}"  alt="ロケット"> -->
                 Star Social
             </a>
-
-            <ul class="nav nav-tabs navbar-right">
+            
+            <ul class="nav justify-content-center navbar-right">
 
                 {% if user.is_authenticated %}
-                    <li class="nav-item"><a href="{% url 'posts:create' %}" class="nav-item nav-link"  class="btn btn-simpe">Post</a></li>
-                    <li class="nav-item"><a href="{% url 'groups:all' %}" class="nav-item nav-link"  class="btn btn-simpe">Groups</a></li>
-                    <li class="nav-item"><a href="{% url 'groups:create' %}" class="nav-item nav-link"  class="btn btn-simpe">Creat Groups</a></li>
-                    <li class="nav-item"><a href="{% url 'accounts:logout' %}" class="nav-item nav-link"  class="btn btn-simpe">Log Out</a></li>
+                    <li class="nav-item"><a href="{% url 'posts:create' %}" class="nav-link"  class="btn btn-simpe">Post</a></li>
+                    <li class="nav-item"><a href="{% url 'groups:all' %}" class="nav-link"  class="btn btn-simpe">Groups</a></li>
+                    <li class="nav-item"><a href="{% url 'groups:create' %}" class="nav-link"  class="btn btn-simpe">Creat Groups</a></li>
+                    <li class="nav-item"><a href="{% url 'accounts:logout' %}" class="nav-link"  class="btn btn-simpe">Log Out</a></li>
                 {% else %}
-                    <li class="nav-item"><a href="{% url 'groups:all' %}" class="nav-item nav-link"  class="btn btn-simpe">Groups</a></li>
+                    <li class="nav-item"><a href="{% url 'groups:all' %}" class="nav-link"  class="btn btn-simpe">Groups</a></li>
                     <li class="nav-item"><a href="{% url 'accounts:login' %}" class="nav-item nav-link"  class="btn btn-simple">Login</a></li>
                     <li class="nav-item"><a href="{% url 'accounts:signup' %}" class="nav-item nav-link"  class="btn btn-simple">Sign Up</a></li>
                 {% endif %}
-
             </ul>
         </div>
-    
     </nav>
     {% block content %}
+
     {% endblock %}
 </body>
 </html>
