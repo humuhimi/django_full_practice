@@ -1,16 +1,3 @@
-/* .navbar-brand {
-
-}
-.navbar-brand:hover */
-.rocket {
-    transition-duration: 1s;
-    transition-delay: 0.5s;
-    transition-timing-function : linear
-}
-.rocket:hover {
-    transform: translateX(20px) translateY(-20px);
-      }
-
 .flash {
     animation: Flash1 1.5s infinite;
 }
@@ -28,7 +15,18 @@ a:hover {
 }
 .navbar-dark .navbar-brand:hover {
     color:yellow;
+    transition-duration: 1s;
+    transition-delay: 0.5s;
+    transition-timing-function : linear
 }
+
+.navbar-dark .navbar-brand:hover .rocket {
+    transition-duration: 1s;
+    transition-delay: 0.5s;
+    transition-timing-function : linear;
+    transform: translateX(20px) translateY(-20px);
+      }
+
 .badge {
     font-size: 90%;
 }
