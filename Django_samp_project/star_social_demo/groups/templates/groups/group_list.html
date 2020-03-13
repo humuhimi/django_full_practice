@@ -31,17 +31,16 @@
 
 {% block group_content %}
 <div class="col-md-8">
-    <div class="list-group">
-        {% for group in object_list  %}
+    <div class="list-group mb-xl-3">
+        {% for group in page_obj  %}
         <a class="list-group-item list-group-item-action" href="{% url 'groups:single' slug=group.slug %}">
-            <h3 class="title list-group-item-heading mb-xl-3"><strong>{{ group.name }}</strong></h3>
+            <h3 class="title list-group-item-heading"><strong>{{ group.name }}</strong></h3>
             <div class="list-group-item-text container-fluid">
                 <u>{{ group.description_html|safe }}</u>
             </div>
           <div class="row">
               <div class="col-md-4">
                   <span class="badge badge-pill badge-info">{{ group.member.count }}</span>
-                  <!--  1 でない場合に、複数形を返す -->
                   member{{ group.member.count|pluralize }}
               </div>
               <div class="col-md-4">
@@ -52,6 +51,32 @@
         </a>
         {% endfor %}
     </div>
-</div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">      
+                <li class="page-item">
+                    {% if page_obj.has_previous %}  
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        {% else %}
+                    <a class="page-link" aria-label="Previous" aria-disabled="true">
+                        {% endif %}
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span> 
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></li>
+                <li class="page-item">
+                    {% if page_obj.has_next %}
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        {% else %}
+                    <a class="page-link" aria-label="Next" aria-disabled="true">
+                        {% endif %} 
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    </div>
+
 {% endblock group_content %}
     

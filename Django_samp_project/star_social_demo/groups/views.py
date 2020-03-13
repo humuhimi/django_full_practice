@@ -23,7 +23,8 @@ class SingleGroup(generic.DetailView):
     model = Group
 
 class ListGroups(generic.ListView):
-    model = Group    
+    paginate_by = 5
+    model = Group   
 
 class JoinGroup(LoginRequiredMixin,generic.RedirectView):
 

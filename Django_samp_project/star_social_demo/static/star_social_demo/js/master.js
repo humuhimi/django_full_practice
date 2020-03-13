@@ -1,26 +1,4 @@
-// // list-group-itemクラスにカーソルが写った場合に activeする
-// var target = document.getElementsByClassName("list-group-item list-group-item-action");
-
-// target.addEventListener('mouseover',() =>{
-//   target.className = "list-group-item list-group-item-action active"
-// },false)
-
-// // target.addEventListener('mouseout',() =>{
-// //   target.className = "list-group-item list-group-item-action"
-// // },false)
-
-// document.addEventListener('mouseover',()=>{
-//   if (target.className == "list-group-item list-group-item-action") {
-//     target.className = "list-group-item list-group-item-action active"
-//   }
-// },false)
-
-// document.addEventListener('mouseover',()=>{
-//   if (target.className == "list-group-item list-group-item-action active") {
-//     target.className = "list-group-item list-group-item-action"
-//   }
-// },false)
-
+// list-group-item list-group-item-action ホバー時に色を変える
 $(".list-group-item-action").hover(
   function() {
     $(this).addClass("active")
@@ -29,12 +7,6 @@ $(".list-group-item-action").hover(
     $(this).removeClass("active")
   },
 )
-// idホーバー→そのidのclassをactive
-
-
-
-// document.getElementById("list_groups").className += "active"; 
-
 
 // SOURCE: http://codepen.io/Thibka/pen/mWGxNj
 var canvas = document.getElementById('canvas'),
@@ -52,11 +24,11 @@ var persons = [],
 var colors = [];
 /* Galactic Tea - http://www.colourlovers.com/palette/1586746/Galactic_Tea*/
 colors[2] = [];
-colors[2]['background'] = '#2F294F';
-colors[2][1] = 'rgba(74,49,89,';
-colors[2][2] = 'rgba(130,91,109,';
-colors[2][3] = 'rgba(185,136,131,';
-colors[2][4] = 'rgba(249,241,204,';
+colors[2]['background'] = '#16dde0';
+colors[2][1] = 'rgba(107, 174, 255';
+colors[2][2] = 'rgba(252, 255, 48,';
+colors[2][3] = 'rgba(15, 255, 3,';
+colors[2][4] = 'rgba(247, 146, 252,';
 
 var colorTheme = 2, //getRandomInt(0,colors.length-1);
   mainSpeed = 1;

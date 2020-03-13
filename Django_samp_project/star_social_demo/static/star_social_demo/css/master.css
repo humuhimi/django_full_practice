@@ -13,6 +13,9 @@ a {
 a:hover {
     color: yellow;
 }
+.page-link {
+    color: black;
+}
 .navbar-dark .navbar-brand:hover {
     color:yellow;
     transition-duration: 1s;
@@ -39,6 +42,7 @@ a:hover {
 }
 
 body {
+    height: 140%;
     margin: 0;
     overflow: hidden;
     /* background-color: black; */
