@@ -1,3 +1,25 @@
+/* .navbar-brand {
+
+}
+.navbar-brand:hover */
+.rocket {
+    transition-duration: 1s;
+    transition-delay: 0.5s;
+    transition-timing-function : linear
+}
+.rocket:hover {
+    transform: translateX(20px) translateY(-20px);
+      }
+
+.flash {
+    animation: Flash1 1.5s infinite;
+}
+/* アニメーション */
+@keyframes Flash1{
+    50%{
+      opacity: 0;
+    }
+  }
 a {
     color: azure;
 }

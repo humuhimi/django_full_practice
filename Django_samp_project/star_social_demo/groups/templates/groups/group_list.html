@@ -7,9 +7,11 @@
             {% if user.is_authenticated %}
               <h2 class="mb-xl-2"> Wellcome Back! </h2>
               <h2>
+                  <span class="flash">
                     <a href="{% url 'posts:for_user' username=user.username %}">
                         @{{ user.username }}
                     </a>
+                  </span>
               </h2>
             {% endif %}
             <h2 class="title mb-xl-5">Groups</h2>

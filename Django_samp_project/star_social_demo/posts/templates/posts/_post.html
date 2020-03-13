@@ -3,7 +3,7 @@
 <div class="post media mt-sm-5">
     <h3>{{post.message_html|safe}}</h3>
     <div class="media-body">
-        <strong>{{ post.user.username }}</strong>
+        <span class="flash"><strong>({{ post.user.username }})</strong></span>
         <h5 class="media-heading">
         <span class="username">
             <a href="{% url 'posts:for_user' username=post.user.username %}"></a>
