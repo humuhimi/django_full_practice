@@ -1,7 +1,7 @@
 {% extends "groups/group_base.html" %}
 
-{% block pregroup %}
 <div class="container">
+{% block pregroup %}
             
             <div class='content'>
             <h1 class="mb-xl-4">{{group.name}}
@@ -15,15 +15,15 @@
                     </a>
                 {% endif %}
             </h1>
-            </div>
             <br />
             <h2><u>Member Count:</u> <span class="badge badge-success mb-xl-4">{{ group.member.count }}</span></h2>
-</div>
+        </div>
 
 {% endblock pregroup %}
 
 
 {% block group_content %}
+    <div class="content m-xl-5">
         {% if group.posts.count == 0 %}
             <h2>No posts in this group yet!</h2>     
         {% else %} 
@@ -31,9 +31,10 @@
             {% include "posts/_post.html" %}
         {% endfor %}   
         {% endif %}
+    </div>
 {% endblock group_content %}
-    
 
+</div>
 
 
 

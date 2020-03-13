@@ -75,6 +75,15 @@ path('accounts/',include('django.contrib.auth.urls'))
 - git reset HEAD . 間違ってadd してしまった時用
 - git add .(.全部)
 - git add -u (すでにtrackされてるもの)
+- git log --graph --all --decorate (グラフ+全部+ref nameを出力)
+- git log --merges で マージのもののみ
+- git log --oneline でラインで出力
+- git log --name-only(変更されたファイルのみ)
+- git diff [ブランチ名A] [ブランチ名B]
+
+
+[git logその他](https://qiita.com/take4s5i/items/15d8648405f4e7ea3039)
+
 
 ---
 

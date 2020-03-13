@@ -5,6 +5,10 @@ from . import models
 class GroupMemberInline(admin.TabularInline):
     model = models.GroupMember
 
+class GroupAdmin(admin.ModelAdmin):
+    fields = ['name','slug','description']
+    search_fields = ['name','description']
 
-admin.site.register(models.Group)
 
+admin.site.register(models.Group,GroupAdmin)
+admin.site.register(models.GroupMember)
