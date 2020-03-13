@@ -1,3 +1,41 @@
+// // list-group-itemクラスにカーソルが写った場合に activeする
+// var target = document.getElementsByClassName("list-group-item list-group-item-action");
+
+// target.addEventListener('mouseover',() =>{
+//   target.className = "list-group-item list-group-item-action active"
+// },false)
+
+// // target.addEventListener('mouseout',() =>{
+// //   target.className = "list-group-item list-group-item-action"
+// // },false)
+
+// document.addEventListener('mouseover',()=>{
+//   if (target.className == "list-group-item list-group-item-action") {
+//     target.className = "list-group-item list-group-item-action active"
+//   }
+// },false)
+
+// document.addEventListener('mouseover',()=>{
+//   if (target.className == "list-group-item list-group-item-action active") {
+//     target.className = "list-group-item list-group-item-action"
+//   }
+// },false)
+
+$(".list-group-item-action").hover(
+  function() {
+    $(this).addClass("active")
+  },
+  function() { 
+    $(this).removeClass("active")
+  },
+)
+// idホーバー→そのidのclassをactive
+
+
+
+// document.getElementById("list_groups").className += "active"; 
+
+
 // SOURCE: http://codepen.io/Thibka/pen/mWGxNj
 var canvas = document.getElementById('canvas'),
   context = canvas.getContext('2d'),

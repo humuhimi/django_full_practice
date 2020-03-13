@@ -30,9 +30,18 @@ a:hover {
 .badge {
     font-size: 90%;
 }
+
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
 body {
     margin: 0;
     overflow: hidden;
-    background-color: black;
+    /* background-color: black; */
+    background-image: url("../images/universe-2742113_1920.jpg");
     color:white;
   }
