@@ -20,11 +20,17 @@ class CreateGroup(LoginRequiredMixin,generic.CreateView):
     model = Group
 
 class SingleGroup(generic.DetailView):
+    # ,generic.list.MultipleObjectMixin
     model = Group
+    # object_list = group.posts.all()
+    # paginate_by = 5
+    # def get_context_data():
+    #     object_list = Group.objects.filter(name=self.object)
+
 
 class ListGroups(generic.ListView):
     paginate_by = 5
-    model = Group   
+    model = Group
 
 class JoinGroup(LoginRequiredMixin,generic.RedirectView):
 

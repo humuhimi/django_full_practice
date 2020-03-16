@@ -23,7 +23,8 @@
 
 
 {% block group_content %}
-    <div class="content m-xl-5">
+    <div class="content">
+        <div class="m-xl-5">
         {% if group.posts.count == 0 %}
             <h2>No posts in this group yet!</h2>     
         {% else %} 
@@ -31,9 +32,35 @@
             {% include "posts/_post.html" %}
         {% endfor %}   
         {% endif %}
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">      
+                    <li class="page-item">
+                        {% if page_obj.has_previous %}  
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                            {% else %}
+                        <a class="page-link" aria-label="Previous" aria-disabled="true">
+                            {% endif %}
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span> 
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></li>
+                    <li class="page-item">
+                        {% if page_obj.has_next %}
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                            {% else %}
+                        <a class="page-link" aria-label="Next" aria-disabled="true">
+                            {% endif %} 
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+            </ul>
+        </nav>    
     </div>
 {% endblock group_content %}
-
+<!-- template化可能? -->
 </div>
 
 

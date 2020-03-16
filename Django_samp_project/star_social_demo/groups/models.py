@@ -30,6 +30,10 @@ class Group(models.Model):
     
     def get_absolute_url(self):
         return reverse('groups:single', kwargs={'slug':self.slug})
+    
+    class Meta:
+        ordering = ['-id']
+        
 
 class GroupMember(models.Model):
     group = models.ForeignKey(Group,related_name='memberships',on_delete=models.CASCADE)
