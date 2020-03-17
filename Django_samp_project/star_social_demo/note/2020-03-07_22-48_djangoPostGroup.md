@@ -19,7 +19,7 @@ register = template.Library()
 ```python
 class Group(models.Model):
     # A slug is the part of a URL which identifies a particular page
-    slug = models.SlugField(allow_unicode=True,unique=True)
+    slug = models.ield(allow_unicode=True,unique=True)
     description_html = models.TextField(editable=False,blank=True,default='')
     #  Provide a many-to-many relation by using an intermediary model that
     #  holds two ForeignKey fields pointed at the two sides of the relation.
